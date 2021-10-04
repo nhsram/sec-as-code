@@ -1,5 +1,7 @@
-param workspaceName string = toLower('la-${resourceTags.Environment}-${resourceGroup().location}-${resourceTags.Project}')
-param appInsights string = toLower('ai-${resourceTags.Environment}-${resourceGroup().location}-${resourceTags.Project}')
+//param workspaceName string = toLower('la-${resourceTags.Environment}-${resourceGroup().location}-${resourceTags.Project}')
+param workspaceName string = 'testWorkSpace'
+//param appInsights string = toLower('ai-${resourceTags.Environment}-${resourceGroup().location}-${resourceTags.Project}')
+param appInsights string = 'testAppInsight'
 param sku string = 'PerGB2018'
 param location string = resourceGroup().location
 param retentionInDays int = 31
