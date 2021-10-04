@@ -1,3 +1,4 @@
+//az deployment sub create --name $(Build.BuildNumber) --location $(location) --subscription $(subscription) --template-file $(templateFile)
 targetScope = 'subscription'
 var enableSecurityCenterFor = [
   'KeyVaults'

@@ -5,7 +5,7 @@ variables:
   vmImageName: 'ubuntu-latest'    
   azureServiceConnection: 'serviceconnection-iac-devops-test'    
   location: 'northeurope'      
-  templateFile: 'enableDefender.bicep'   
+  templateFile: 'deployLogAnalytics.bicep'   
   subscription: '09571fdf-86af-4c4f-809c-6e3a1ae77d9e'
   
 pool:
@@ -19,5 +19,5 @@ steps:
     scriptType: bash
     scriptLocation: inlineScript
     inlineScript: |
-      az --version     
-      az deployment sub create --name $(Build.BuildNumber) --location $(location) --subscription $(subscription) --template-file $(templateFile)
+      az --version      
+      az deployment group create --name $(Build.BuildNumber) --resource-group testrg --template-file $(templateFile) --parameters 'linkedAutomation=true' 'vmInsightsBool=true' 'updateManagementBool=true' 'changeTrackingBool=true' 'appInsightsBool=true'
