@@ -1,3 +1,4 @@
+//az deployment group create --name $(Build.BuildNumber) --subscription $(subscription) --resource-group testrg --template-file $(templateFile) --parameters 'linkedAutomation=true' 'azureSentinelBool=true' 'azureSecurityCenterBool=true' 'changeTrackingBool=true'
 //param workspaceName string = toLower('la-${resourceTags.Environment}-${resourceGroup().location}-${resourceTags.Project}')
 param workspaceName string = 'testWorkSpace'
 //param appInsights string = toLower('ai-${resourceTags.Environment}-${resourceGroup().location}-${resourceTags.Project}')
