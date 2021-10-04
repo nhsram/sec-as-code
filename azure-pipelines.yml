@@ -1,0 +1,23 @@
+trigger:
+  - main
+  
+variables:
+  vmImageName: 'ubuntu-latest'    
+  azureServiceConnection: 'serviceconnection-iac-devops-test'    
+  location: 'northeurope'      
+  templateFile: 'deployLogAnalytics.bicep'   
+  subscription: '09571fdf-86af-4c4f-809c-6e3a1ae77d9e'
+  
+pool:
+  vmImage: $(vmImageName)
+  
+steps:
+- task: AzureCLI@2
+  inputs:
+    deploymentScope: 'subscription'
+    azureSubscription: $(azureServiceConnection)          
+    scriptType: bash
+    scriptLocation: inlineScript
+    inlineScript: |
+      az --version      
+      az deployment group create --name $(Build.BuildNumber) --subscription $(subscription) --resource-group testrg --template-file $(templateFile) --parameters 'linkedAutomation=true' 'azureSentinelBool=true' 'azureSecurityCenterBool=true' 'changeTrackingBool=true'
