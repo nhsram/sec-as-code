@@ -25,7 +25,9 @@ var AAlocation = {
   westeurope: ((location == 'westeurope') ? 'northeurope' : location)
 }
 var automationLocation = ((location == 'northeurope') ? AAlocation.westeurope : AAlocation.northeurope)
-var automationAccountName = toLower('aa-${resourceTags.Environment}-${automationLocation}-${resourceTags.Project}')
+//var automationAccountName = toLower('aa-${resourceTags.Environment}-${automationLocation}-${resourceTags.Project}')
+var automationAccountName = 'testautomationaccountname'
+
 
 var azureSentinel = {
   name: 'SecurityInsights(${workspaceName})'
