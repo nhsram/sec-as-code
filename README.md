@@ -1,1 +1,1 @@
-# sec-as-cdoe
+# sec-as-code
